@@ -17,7 +17,10 @@ defmodule LvjsDemoWeb.Router do
   scope "/", LvjsDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", CounterLive
+    live "/click-command", CounterJSLive
+    live "/css-commands", CSSCommandsLive
+    live "/css-transition", CSSTransitionLive
   end
 
   # Other scopes may use custom stacks.
