@@ -21,6 +21,7 @@ defmodule LvjsDemoWeb.Router do
     live "/click-command", CounterJSLive
     live "/css-commands", CSSCommandsLive
     live "/css-transition", CSSTransitionLive
+    live "/optimistic-ui", OptimisticCartLive
   end
 
   # Other scopes may use custom stacks.
