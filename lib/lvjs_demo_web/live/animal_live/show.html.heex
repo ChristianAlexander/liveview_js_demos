@@ -10,6 +10,11 @@
 
 <.list>
   <:item title="Name"><%= @animal.name %></:item>
+  <:item title="Friend">
+    <.button class="px-6" phx-click={JS.patch(~p"/animals/#{@friend}")}>
+      <%= @friend.name %>
+    </.button>
+  </:item>
 </.list>
 
 <.back navigate={~p"/animals"}>Back to animals</.back>

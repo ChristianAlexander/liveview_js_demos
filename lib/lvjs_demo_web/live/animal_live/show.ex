@@ -13,7 +13,8 @@ defmodule LvjsDemoWeb.AnimalLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:animal, Animals.get_animal!(id))}
+     |> assign(:animal, Animals.get_animal!(id))
+     |> assign(:friend, Animals.random_animal!(id))}
   end
 
   defp page_title(:show), do: "Show Animal"

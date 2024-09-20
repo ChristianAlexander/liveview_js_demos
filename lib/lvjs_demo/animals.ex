@@ -37,6 +37,17 @@ defmodule LvjsDemo.Animals do
   """
   def get_animal!(id), do: Repo.get!(Animal, id)
 
+  def random_animal!(exclude_id \\ nil) do
+    query =
+      Animal
+      |> order_by(fragment("RANDOM()"))
+      |> limit(1)
+
+    query = if not is_nil(exclude_id), do: where(query, [a], a.id != ^exclude_id), else: query
+
+    Repo.one!(query)
+  end
+
   @doc """
   Creates a animal.
 
