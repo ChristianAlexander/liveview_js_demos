@@ -23,6 +23,8 @@ defmodule LvjsDemoWeb.Router do
     live "/css-transition", CSSTransitionLive
     live "/optimistic-ui", OptimisticCartLive
     live "/show-hide", ShowAndHideLive
+    live "/focus-form", FormFocusLive
+    live "/focus-push-pop", PushPopFocusLive
   end
 
   # Other scopes may use custom stacks.
