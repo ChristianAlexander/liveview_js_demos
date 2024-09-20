@@ -52,7 +52,7 @@ defmodule LvjsDemoWeb.CSSCommandsLive do
       <p id="target-text" class="grow mr-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aenean non odio molestie, tristique lectus suscipit, luctus urna.
-        Sed pharetra sodales tortor, non luctus magna vestibulum ut.
+        Sed pharetra sodales tortor, non luctus magna.
       </p>
       <div class="border-l border-gray-200 pl-8 space-y-4 whitespace-nowrap flex flex-col">
         <button
