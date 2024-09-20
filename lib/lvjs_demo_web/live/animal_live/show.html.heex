@@ -1,0 +1,26 @@
+<.header>
+  Animal <%= @animal.id %>
+  <:subtitle>This is a animal record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/animals/#{@animal}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit animal</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @animal.name %></:item>
+</.list>
+
+<.back navigate={~p"/animals"}>Back to animals</.back>
+
+<.modal :if={@live_action == :edit} id="animal-modal" show on_cancel={JS.patch(~p"/animals/#{@animal}")}>
+  <.live_component
+    module={LvjsDemoWeb.AnimalLive.FormComponent}
+    id={@animal.id}
+    title={@page_title}
+    action={@live_action}
+    animal={@animal}
+    patch={~p"/animals/#{@animal}"}
+  />
+</.modal>

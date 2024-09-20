@@ -1,0 +1,41 @@
+<.header>
+  Listing Animals
+  <:actions>
+    <.link patch={~p"/animals/new"}>
+      <.button>New Animal</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="animals"
+  rows={@streams.animals}
+  row_click={fn {_id, animal} -> JS.navigate(~p"/animals/#{animal}") end}
+>
+  <:col :let={{_id, animal}} label="Name"><%= animal.name %></:col>
+  <:action :let={{_id, animal}}>
+    <div class="sr-only">
+      <.link navigate={~p"/animals/#{animal}"}>Show</.link>
+    </div>
+    <.link patch={~p"/animals/#{animal}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, animal}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: animal.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="animal-modal" show on_cancel={JS.patch(~p"/animals")}>
+  <.live_component
+    module={LvjsDemoWeb.AnimalLive.FormComponent}
+    id={@animal.id || :new}
+    title={@page_title}
+    action={@live_action}
+    animal={@animal}
+    patch={~p"/animals"}
+  />
+</.modal>

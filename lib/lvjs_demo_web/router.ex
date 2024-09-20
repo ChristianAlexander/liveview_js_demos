@@ -25,6 +25,13 @@ defmodule LvjsDemoWeb.Router do
     live "/show-hide", ShowAndHideLive
     live "/focus-form", FormFocusLive
     live "/focus-push-pop", PushPopFocusLive
+
+    live "/animals", AnimalLive.Index, :index
+    live "/animals/new", AnimalLive.Index, :new
+    live "/animals/:id/edit", AnimalLive.Index, :edit
+
+    live "/animals/:id", AnimalLive.Show, :show
+    live "/animals/:id/show/edit", AnimalLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
