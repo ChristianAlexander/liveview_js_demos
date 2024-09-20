@@ -25,6 +25,7 @@ defmodule LvjsDemoWeb.Router do
     live "/show-hide", ShowAndHideLive
     live "/focus-form", FormFocusLive
     live "/focus-push-pop", PushPopFocusLive
+    live "/dispatch", DispatchLive
 
     live "/animals", AnimalLive.Index, :index
     live "/animals/new", AnimalLive.Index, :new
